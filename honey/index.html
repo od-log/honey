@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>🍯 데이트 포맷 🍯</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script type="text/javascript">
+      const views = 9744642;
+      const formatter = new Intl.NumberFormat(navigator.language, {
+        notation: "compact",
+        compactDisplay: "long",
+      });
+      formatter.format(views);
+
+      const price = 10000;
+      const priceFomatter = new Intl.NumberFormat(navigator.language, {
+        style: "currency",
+        currency: "krw",
+        notation: "compact",
+      });
+      formatter.format(price);
+
+      const dateFormatter = new Intl.RelativeTimeFormat(navigator.language, {
+        numeric: "auto",
+      });
+      dateFormatter.format(1, "day");
+      dateFormatter.format(-1, "day");
+
+      const 오늘 = new Date();
+      const 첫날 = new Date(2022, 0, 1);
+      const dayPassed = Math.ceil((오늘 - 첫날) / (1000 * 60 * 60 * 24));
+      const 한국_오늘_날짜 = new Intl.DateTimeFormat("ko").format(오늘);
+      const 한국_첫날 = 첫날.toLocaleDateString("ko", {
+        dateStyle: "full",
+      });
+
+      document.write(`<h2>${한국_오늘_날짜}<h2>`);
+      document.write(`${한국_첫날}로 부터 ${dayPassed}일 지남`);
+    </script>
+    <a
+      href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Intl"
+    >
+      Intl 알아보기
+    </a>
+  </body>
+</html>
